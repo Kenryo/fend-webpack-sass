@@ -11,6 +11,13 @@ function handleSubmit(event) {
     .then(function(res) {
         document.getElementById('results').innerHTML = res.message
     })
+
+    fetch('https://restcountries.eu/rest/v2/name/'+formText)
+    .then(res => res.json())
+    .then(function(res) {
+        document.getElementById('exresponse').innerHTML = res[0].callingCodes
+    })
+
 }
 
 export { handleSubmit }
